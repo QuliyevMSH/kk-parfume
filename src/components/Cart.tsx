@@ -7,7 +7,7 @@ interface CartProps {
 }
 
 const Cart = ({ isOpen, onClose }: CartProps) => {
-  const { cart, updateQuantity, removeFromCart, totalAmount } = useCart();
+  const { cart, updateQuantity, removeFromCart, totalAmount, totalItems } = useCart();
 
   const handleWhatsAppCheckout = () => {
     const message = cart
@@ -32,7 +32,14 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
         <div className="h-full flex flex-col">
           {/* Header */}
           <div className="p-4 border-b flex justify-between items-center">
-            <h2 className="text-xl font-playfair font-semibold">Səbətim</h2>
+            <div className="flex items-center gap-2">
+              <h2 className="text-xl font-playfair font-semibold">Səbətim</h2>
+              {totalItems > 0 && (
+                <span className="bg-gold text-white text-xs px-2 py-1 rounded-full">
+                  {totalItems}
+                </span>
+              )}
+            </div>
             <button
               onClick={onClose}
               className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-300"
