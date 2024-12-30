@@ -18,8 +18,8 @@ const Header = ({ onCartClick }: { onCartClick: () => void }) => {
             </h1>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation with Cart */}
+          <div className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
               className="text-black hover:text-gold transition-colors duration-300"
@@ -32,28 +32,39 @@ const Header = ({ onCartClick }: { onCartClick: () => void }) => {
             >
               Haqqımızda
             </Link>
-          </nav>
+            <button
+              onClick={onCartClick}
+              className="relative p-2 hover:bg-gray-100 rounded-full transition-colors duration-300"
+            >
+              <ShoppingBasket className="h-6 w-6" />
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 bg-gold text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
+            </button>
+          </div>
 
-          {/* Cart Button */}
-          <button
-            onClick={onCartClick}
-            className="relative p-2 hover:bg-gray-100 rounded-full transition-colors duration-300"
-          >
-            <ShoppingBasket className="h-6 w-6" />
-            {totalItems > 0 && (
-              <span className="absolute -top-1 -right-1 bg-gold text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                {totalItems}
-              </span>
-            )}
-          </button>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 hover:bg-gray-100 rounded-full transition-colors duration-300"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          {/* Mobile Menu and Cart Buttons */}
+          <div className="flex items-center space-x-2 md:hidden">
+            <button
+              onClick={onCartClick}
+              className="relative p-2 hover:bg-gray-100 rounded-full transition-colors duration-300"
+            >
+              <ShoppingBasket className="h-6 w-6" />
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 bg-gold text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
+            </button>
+            <button
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-300"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
