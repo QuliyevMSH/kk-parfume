@@ -1,7 +1,6 @@
 import { X, Plus, Minus } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Input } from './ui/input';
 
 interface CartProps {
@@ -10,7 +9,6 @@ interface CartProps {
 }
 
 const Cart = ({ isOpen, onClose }: CartProps) => {
-  const { t } = useTranslation();
   const { cart, updateQuantity, removeFromCart, totalAmount, totalItems } = useCart();
   const [deliveryAddress, setDeliveryAddress] = useState('');
 
@@ -38,7 +36,7 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
         <div className="h-full flex flex-col">
           <div className="p-4 border-b flex justify-between items-center">
             <div className="flex items-center gap-2">
-              <h2 className="text-xl font-playfair font-semibold">{t('cart.title')}</h2>
+              <h2 className="text-xl font-playfair font-semibold">Səbətim</h2>
               {totalItems > 0 && (
                 <span className="bg-gold text-white text-xs px-2 py-1 rounded-full">
                   {totalItems}
@@ -55,7 +53,7 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
 
           <div className="flex-1 overflow-y-auto p-4">
             {cart.length === 0 ? (
-              <p className="text-center text-gray-500 mt-8">{t('cart.empty')}</p>
+              <p className="text-center text-gray-500 mt-8">Səbətiniz boşdur</p>
             ) : (
               <div className="space-y-4">
                 {cart.map((item) => (
@@ -105,13 +103,16 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
 
           {cart.length > 0 && (
             <div className="border-t p-4 space-y-4 dark:border-gray-700">
+              <div className="text-sm text-center p-2 bg-gold/10 rounded-md text-gold dark:text-gold">
+                20m üzəri alışda bakı sumqayıta çatdırılma pulsuzdur
+              </div>
               <div className="flex justify-between items-center">
-                <span className="font-medium dark:text-white">{t('cart.total')}:</span>
+                <span className="font-medium dark:text-white">Cəmi:</span>
                 <span className="font-semibold dark:text-white">{totalAmount} AZN</span>
               </div>
               <div className="space-y-2">
                 <label className="block text-sm font-medium dark:text-white">
-                  {t('cart.deliveryAddress')}:
+                  Çatdırılma ünvanı:
                 </label>
                 <Input
                   type="text"
@@ -125,7 +126,7 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
                 onClick={handleWhatsAppCheckout}
                 className="w-full btn-primary dark:bg-gold dark:text-black dark:hover:bg-gold/90"
               >
-                {t('cart.buyAll')}
+                Hamısını al
               </button>
             </div>
           )}
