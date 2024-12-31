@@ -1,7 +1,7 @@
-import { X, Plus, Minus } from 'lucide-react';
-import { useCart } from '../context/CartContext';
-import { useState } from 'react';
-import { Input } from './ui/input';
+import { X, Plus, Minus } from "lucide-react";
+import { useCart } from "../context/CartContext";
+import { useState } from "react";
+import { Input } from "./ui/input";
 
 interface CartProps {
   isOpen: boolean;
@@ -9,20 +9,27 @@ interface CartProps {
 }
 
 const Cart = ({ isOpen, onClose }: CartProps) => {
-  const { cart, updateQuantity, removeFromCart, totalAmount, totalItems } = useCart();
-  const [deliveryAddress, setDeliveryAddress] = useState('');
+  const { cart, updateQuantity, removeFromCart, totalAmount, totalItems } =
+    useCart();
+  const [deliveryAddress, setDeliveryAddress] = useState("");
 
   const handleWhatsAppCheckout = () => {
     const message = cart
       .map(
-        item =>
-          `${item.name} - ${item.quantity} ədəd (${item.price * item.quantity} AZN)`
+        (item) =>
+          `*${item.name}* - ${item.quantity} ml (${
+            item.price * item.quantity
+          } AZN)`
       )
-      .join('\n');
-    const totalMessage = `\nCəmi: ${totalAmount} AZN`;
-    const addressMessage = deliveryAddress ? `\nÇatdırılma ünvanı: ${deliveryAddress}` : '';
-    const fullMessage = encodeURIComponent(`Sifariş:\n${message}${totalMessage}${addressMessage}`);
-    window.open(`https://wa.me/994506847834?text=${fullMessage}`, '_blank');
+      .join("\n");
+    const totalMessage = `\nCəmi: *${totalAmount}* AZN`;
+    const addressMessage = deliveryAddress
+      ? `\nÇatdırılma ünvanı: *${deliveryAddress}*`
+      : "";
+    const fullMessage = encodeURIComponent(
+      `*Sifariş:*\n${message}${totalMessage}${addressMessage}`
+    );
+    window.open(`https://wa.me/994506847834?text=${fullMessage}`, "_blank");
   };
 
   return (
@@ -30,13 +37,15 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
       {isOpen && <div className="cart-overlay" onClick={onClose} />}
       <div
         className={`cart-sidebar ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+          isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="h-full flex flex-col">
           <div className="p-4 border-b dark:border-gray-700 flex justify-between items-center dark:bg-gray-800">
             <div className="flex items-center gap-2">
-              <h2 className="text-xl font-playfair font-semibold dark:text-white">Səbətim</h2>
+              <h2 className="text-xl font-playfair font-semibold dark:text-white">
+                Səbətim
+              </h2>
               {totalItems > 0 && (
                 <span className="bg-gold text-white text-xs px-2 py-1 rounded-full">
                   {totalItems}
@@ -51,9 +60,26 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-4 dark:bg-gray-800">
+          <div
+            className="flex-1 overflow-y-auto p-4 dark:bg-gray-800"
+            style={{
+              overflowY: "scroll", // Dikey kaydırma aktif
+              scrollbarWidth: "none", // Firefox için
+              msOverflowStyle: "none", // IE ve Edge için
+              WebkitOverflowScrolling: "touch", // Daha iyi kaydırma davranışı için
+            }}
+          >
+            <style>
+              {`
+          div::-webkit-scrollbar {
+            display: none; /* Chrome ve Safari */
+          }
+        `}
+            </style>
             {cart.length === 0 ? (
-              <p className="text-center text-gray-500 dark:text-gray-400 mt-8">Səbətiniz boşdur</p>
+              <p className="text-center text-gray-500 dark:text-gray-400 mt-8">
+                Səbətiniz boşdur
+              </p>
             ) : (
               <div className="space-y-4">
                 {cart.map((item) => (
@@ -67,14 +93,21 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
                       className="w-20 h-20 object-cover rounded-md"
                     />
                     <div className="flex-1">
-                      <h3 className="font-medium dark:text-white">{item.name}</h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-300">{item.price} AZN</p>
-                      <div className="flex items-center space-x-2 mt-2">
+                      <h3 className="font-medium dark:text-white">
+                        {item.name}
+                      </h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-300">
+                        {item.price} AZN
+                      </p>
+                      <div className="flex items-center space-x-3 mt-2">
+                        <p className="text-sm text-gray-500 dark:text-gray-300">
+                          Neçə ml?
+                        </p>
                         <button
                           onClick={() =>
                             updateQuantity(item.id, item.quantity - 1)
                           }
-                          className="p-1 hover:bg-gray-100 dark:hover:bg-gray-600 rounded"
+                          className="p-1 bg-gold dark:hover:bg-gold-100 rounded"
                         >
                           <Minus className="h-4 w-4 dark:text-white" />
                         </button>
@@ -83,7 +116,7 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
                           onClick={() =>
                             updateQuantity(item.id, item.quantity + 1)
                           }
-                          className="p-1 hover:bg-gray-100 dark:hover:bg-gray-600 rounded"
+                          className="p-1 bg-gold dark:hover:bg-gold-100 rounded"
                         >
                           <Plus className="h-4 w-4 dark:text-white" />
                         </button>
@@ -91,7 +124,7 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
                     </div>
                     <button
                       onClick={() => removeFromCart(item.id)}
-                      className="p-2 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-full transition-colors duration-300"
+                      className="p-2 bg-gold hover:bg-gray-100 dark:hover:bg-gray-600 rounded-full transition-colors duration-300"
                     >
                       <X className="h-4 w-4 dark:text-white" />
                     </button>
@@ -104,11 +137,13 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
           {cart.length > 0 && (
             <div className="border-t p-4 space-y-4 dark:border-gray-700 dark:bg-gray-800">
               <div className="text-sm text-center p-2 bg-gold/10 rounded-md text-gold">
-                20m üzəri alışda bakı sumqayıta çatdırılma pulsuzdur
+                20 AZN üzəri alışda Bakı və Sumqayıta çatdırılma pulsuzdur !
               </div>
               <div className="flex justify-between items-center">
                 <span className="font-medium dark:text-white">Cəmi:</span>
-                <span className="font-semibold dark:text-white">{totalAmount} AZN</span>
+                <span className="font-semibold dark:text-white">
+                  {totalAmount} AZN
+                </span>
               </div>
               <div className="space-y-2">
                 <label className="block text-sm font-medium dark:text-white">

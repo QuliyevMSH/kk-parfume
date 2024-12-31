@@ -84,6 +84,9 @@ const Index = () => {
               <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                 Premium keyfiyyətli ətirlər kolleksiyamızdan seçim edin
               </p>
+              <p className="text-gray-900 dark:text-gray-200 max-w-2xl mx-auto">
+                Qeyd: Qiymətlər <b>1 ml</b> üzərindəndir!
+              </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -7,7 +7,6 @@ import { CartProvider } from "./context/CartContext";
 import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import About from "./pages/About";
-import "./i18n/i18n";
 
 const queryClient = new QueryClient();
 
