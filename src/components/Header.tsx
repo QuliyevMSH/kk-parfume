@@ -14,8 +14,11 @@ const Header = ({ onCartClick }: { onCartClick: () => void }) => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
-            <h1 className="text-2xl font-playfair font-bold text-black dark:text-white">
-              KK<span className="text-gold">Parfüm</span>
+            <h1 className="text-2xl font-playfair font-bold">
+              <div className="inline-flex bg-black dark:bg-white px-2 py-1 rounded">
+                <span className="text-white dark:text-black">KK</span>
+              </div>
+              <span className="text-gold ml-1">Parfüm</span>
             </h1>
           </Link>
 

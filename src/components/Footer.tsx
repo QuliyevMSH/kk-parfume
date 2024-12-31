@@ -4,7 +4,12 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-playfair font-semibold mb-4">KK Parfüm</h3>
+            <h3 className="text-xl font-playfair font-semibold mb-4">
+              <div className="inline-flex bg-white px-2 py-1 rounded">
+                <span className="text-black">KK</span>
+              </div>
+              <span className="text-gold ml-1">Parfüm</span>
+            </h3>
             <p className="text-gray-400">
               Premium ətirlər və xüsusi təkliflər üçün bizi seçin
             </p>
