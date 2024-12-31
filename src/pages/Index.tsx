@@ -33,6 +33,34 @@ const products = [
     description: "Güclü və cazibədar kişi ətri",
     price: 180,
     image: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6f?q=80&w=1780&auto=format&fit=crop"
+  },
+  {
+    id: 5,
+    name: "Gucci Bloom",
+    description: "Zərif çiçək notaları",
+    price: 280,
+    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=2004&auto=format&fit=crop"
+  },
+  {
+    id: 6,
+    name: "YSL Black Opium",
+    description: "Qəhvə və vanilya notaları",
+    price: 290,
+    image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    id: 7,
+    name: "Armani Code",
+    description: "Elegantlıq və cazibədarlıq",
+    price: 240,
+    image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1974&auto=format&fit=crop"
+  },
+  {
+    id: 8,
+    name: "Paco Rabanne 1 Million",
+    description: "Lüks və cəzbedici kişi ətri",
+    price: 220,
+    image: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6f?q=80&w=1780&auto=format&fit=crop"
   }
 ];
 
@@ -47,13 +75,13 @@ const Index = () => {
       <main className="flex-1">
         <Hero />
         
-        <section id="products" className="py-20 bg-gray-50">
+        <section id="products" className="py-20 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4 dark:text-white">
                 Ətirlər Kolleksiyası
               </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
+              <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                 Premium keyfiyyətli ətirlər kolleksiyamızdan seçim edin
               </p>
             </div>

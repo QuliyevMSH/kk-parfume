@@ -3,23 +3,11 @@ import { ShoppingBasket, Menu, X, Sun, Moon } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 import { useTheme } from 'next-themes';
-import { useTranslation } from 'react-i18next';
 
 const Header = ({ onCartClick }: { onCartClick: () => void }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { totalItems } = useCart();
   const { theme, setTheme } = useTheme();
-  const { t, i18n } = useTranslation();
-
-  const languages = [
-    { code: 'az', name: 'AZ' },
-    { code: 'en', name: 'EN' },
-    { code: 'ru', name: 'RU' }
-  ];
-
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-  };
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-30 shadow-sm">
@@ -36,29 +24,14 @@ const Header = ({ onCartClick }: { onCartClick: () => void }) => {
               to="/"
               className="text-black dark:text-white hover:text-gold dark:hover:text-gold transition-colors duration-300"
             >
-              {t('navigation.home')}
+              Ana Səhifə
             </Link>
             <Link
               to="/about"
               className="text-black dark:text-white hover:text-gold dark:hover:text-gold transition-colors duration-300"
             >
-              {t('navigation.about')}
+              Haqqımızda
             </Link>
-            <div className="flex items-center space-x-2">
-              {languages.map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => changeLanguage(lang.code)}
-                  className={`px-2 py-1 rounded-md transition-colors duration-300 ${
-                    i18n.language === lang.code
-                      ? 'bg-gold text-white'
-                      : 'text-black dark:text-white hover:text-gold dark:hover:text-gold'
-                  }`}
-                >
-                  {lang.name}
-                </button>
-              ))}
-            </div>
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors duration-300"
@@ -125,33 +98,15 @@ const Header = ({ onCartClick }: { onCartClick: () => void }) => {
                 className="text-black dark:text-white hover:text-gold dark:hover:text-gold transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t('navigation.home')}
+                Ana Səhifə
               </Link>
               <Link
                 to="/about"
                 className="text-black dark:text-white hover:text-gold dark:hover:text-gold transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t('navigation.about')}
+                Haqqımızda
               </Link>
-              <div className="flex items-center space-x-2 pt-2">
-                {languages.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => {
-                      changeLanguage(lang.code);
-                      setIsMenuOpen(false);
-                    }}
-                    className={`px-2 py-1 rounded-md transition-colors duration-300 ${
-                      i18n.language === lang.code
-                        ? 'bg-gold text-white'
-                        : 'text-black dark:text-white hover:text-gold dark:hover:text-gold'
-                    }`}
-                  >
-                    {lang.name}
-                  </button>
-                ))}
-              </div>
             </div>
           </nav>
         )}
