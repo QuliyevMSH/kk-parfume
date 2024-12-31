@@ -1,13 +1,23 @@
 import { useTheme } from "next-themes";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { useState } from "react";
+import Cart from "../components/Cart";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
   const { theme } = useTheme();
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen pt-24 dark:bg-gray-900">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen dark:bg-gray-900">
+      <Header onCartClick={() => setIsCartOpen(true)} />
+      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+      
+      <div className="container mx-auto px-4 pt-24 pb-16">
         <h1 className="text-4xl md:text-5xl font-playfair font-bold mb-8 text-center dark:text-white">
-          Haqqımızda
+          {t('navigation.about')}
         </h1>
         
         <div className="max-w-3xl mx-auto space-y-6 text-gray-700 dark:text-gray-300">
@@ -37,6 +47,8 @@ const About = () => {
           </p>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };

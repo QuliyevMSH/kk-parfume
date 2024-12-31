@@ -1,0 +1,18 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "cart": "Cart"
+  },
+  "cart": {
+    "title": "My Cart",
+    "total": "Total",
+    "buyAll": "Buy All",
+    "deliveryAddress": "Delivery Address",
+    "empty": "Cart is empty"
+  },
+  "products": {
+    "title": "Perfume Collection",
+    "addToCart": "Add to Cart"
+  }
+}
