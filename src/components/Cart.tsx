@@ -32,6 +32,18 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
     window.open(`https://wa.me/994506847834?text=${fullMessage}`, "_blank");
   };
 
+  const handleQuantityChange = (id: number, value: string) => {
+    // Only allow numbers
+    if (!/^\d*$/.test(value)) return;
+    
+    const quantity = parseInt(value) || 0;
+    if (quantity === 0) {
+      removeFromCart(id);
+    } else {
+      updateQuantity(id, quantity);
+    }
+  };
+
   return (
     <>
       {isOpen && <div className="cart-overlay" onClick={onClose} />}
@@ -63,16 +75,16 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
           <div
             className="flex-1 overflow-y-auto p-4 dark:bg-gray-800"
             style={{
-              overflowY: "scroll", // Dikey kaydırma aktif
-              scrollbarWidth: "none", // Firefox için
-              msOverflowStyle: "none", // IE ve Edge için
-              WebkitOverflowScrolling: "touch", // Daha iyi kaydırma davranışı için
+              overflowY: "scroll",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              WebkitOverflowScrolling: "touch",
             }}
           >
             <style>
               {`
           div::-webkit-scrollbar {
-            display: none; /* Chrome ve Safari */
+            display: none;
           }
         `}
             </style>
@@ -111,7 +123,12 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
                         >
                           <Minus className="h-4 w-4 dark:text-white" />
                         </button>
-                        <span className="dark:text-white">{item.quantity}</span>
+                        <input
+                          type="text"
+                          value={item.quantity}
+                          onChange={(e) => handleQuantityChange(item.id, e.target.value)}
+                          className="w-12 text-center dark:bg-gray-600 dark:text-white rounded border dark:border-gray-500"
+                        />
                         <button
                           onClick={() =>
                             updateQuantity(item.id, item.quantity + 1)
