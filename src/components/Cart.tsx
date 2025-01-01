@@ -53,6 +53,10 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
     return id in tempQuantities ? tempQuantities[id] : actualQuantity.toString();
   };
 
+  const calculateItemTotal = (price: number, quantity: number) => {
+    return (price * quantity).toFixed(2);
+  };
+
   return (
     <>
       {isOpen && <div className="cart-overlay" onClick={onClose} />}
@@ -117,9 +121,14 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
                       <h3 className="font-medium dark:text-white">
                         {item.name}
                       </h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-300">
-                        {item.price} AZN
-                      </p>
+                      <div className="flex justify-between items-center">
+                        <p className="text-sm text-gray-500 dark:text-gray-300">
+                          {item.price} AZN
+                        </p>
+                        <p className="text-sm font-semibold text-gold">
+                          Cəmi: {calculateItemTotal(item.price, item.quantity)} AZN
+                        </p>
+                      </div>
                       <div className="flex items-center space-x-3 mt-2">
                         <p className="text-sm text-gray-500 dark:text-gray-300">
                           Neçə ml?
