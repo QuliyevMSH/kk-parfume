@@ -1,4 +1,10 @@
 const Hero = () => {
+  const scrollToProducts = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const productsSection = document.getElementById('products');
+    productsSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="relative h-screen flex items-center justify-center overflow-hidden">
       <div
@@ -16,7 +22,7 @@ const Hero = () => {
         <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8">
           Özünüzü xüsusi hiss etmək üçün premium ətirlər
         </p>
-        <a href="#products" className="btn-primary">
+        <a href="#products" onClick={scrollToProducts} className="btn-primary">
           Məhsullarımız
         </a>
       </div>

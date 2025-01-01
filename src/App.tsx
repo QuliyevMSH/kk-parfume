@@ -1,32 +1,19 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CartProvider } from "./context/CartContext";
-import { ThemeProvider } from "next-themes";
-import Index from "./pages/Index";
-import About from "./pages/About";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Index from './pages/Index';
+import ProductDetail from './pages/ProductDetail';
+import { CartProvider } from './context/CartContext';
 
-const queryClient = new QueryClient();
-
-const App = () => (
-  <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-    <QueryClientProvider client={queryClient}>
+function App() {
+  return (
+    <Router>
       <CartProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+        </Routes>
       </CartProvider>
-    </QueryClientProvider>
-  </ThemeProvider>
-);
+    </Router>
+  );
+}
 
 export default App;
