@@ -12,6 +12,7 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
   const { cart, updateQuantity, removeFromCart, totalAmount, totalItems } =
     useCart();
   const [deliveryAddress, setDeliveryAddress] = useState("");
+  const [tempQuantities, setTempQuantities] = useState<{[key: number]: string}>({});
 
   const handleWhatsAppCheckout = () => {
     const message = cart
@@ -36,12 +37,20 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
     // Only allow numbers
     if (!/^\d*$/.test(value)) return;
     
+    setTempQuantities(prev => ({ ...prev, [id]: value }));
+    
+    if (value === '') return; // Don't update if empty
+    
     const quantity = parseInt(value) || 0;
     if (quantity === 0) {
       removeFromCart(id);
     } else {
       updateQuantity(id, quantity);
     }
+  };
+
+  const getDisplayQuantity = (id: number, actualQuantity: number) => {
+    return id in tempQuantities ? tempQuantities[id] : actualQuantity.toString();
   };
 
   return (
@@ -125,7 +134,7 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
                         </button>
                         <input
                           type="text"
-                          value={item.quantity}
+                          value={getDisplayQuantity(item.id, item.quantity)}
                           onChange={(e) => handleQuantityChange(item.id, e.target.value)}
                           className="w-12 text-center dark:bg-gray-600 dark:text-white rounded border dark:border-gray-500"
                         />
