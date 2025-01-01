@@ -3,9 +3,11 @@ import Index from './pages/Index';
 import ProductDetail from './pages/ProductDetail';
 import { CartProvider } from './context/CartContext';
 import About from './pages/About';
+import { ThemeProvider } from 'next-themes';
 
 function App() {
   return (
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
     <Router>
       <CartProvider>
         <Routes>
@@ -15,6 +17,7 @@ function App() {
         </Routes>
       </CartProvider>
     </Router>
+    </ThemeProvider>
   );
 }
 
