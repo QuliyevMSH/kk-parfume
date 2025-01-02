@@ -87,8 +87,8 @@ const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState<Category>('all');
 
   const filteredProducts = selectedCategory === 'all' 
-    ? products 
-    : products.filter(product => product.gender === selectedCategory);
+    ? [...products].sort((a, b) => b.id - a.id)
+    : [...products].filter(product => product.gender === selectedCategory).sort((a, b) => b.id - a.id);
 
   return (
     <div className="min-h-screen flex flex-col">
