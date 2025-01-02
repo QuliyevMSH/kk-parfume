@@ -4,7 +4,6 @@ import Cart from '../components/Cart';
 import Hero from '../components/Hero';
 import ProductCard from '../components/ProductCard';
 import Footer from '../components/Footer';
-import { useNavigate } from 'react-router-dom';
 
 export const products = [
   {
@@ -81,9 +80,15 @@ export const products = [
   }
 ];
 
+type Category = 'all' | 'Kişi' | 'Qadın' | 'Unisex';
+
 const Index = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const navigate = useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState<Category>('all');
+
+  const filteredProducts = selectedCategory === 'all' 
+    ? products 
+    : products.filter(product => product.gender === selectedCategory);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -99,16 +104,59 @@ const Index = () => {
               <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4 dark:text-white">
                 Ətirlər Kolleksiyası
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
                 Premium keyfiyyətli ətirlər kolleksiyamızdan seçim edin
               </p>
-              <p className="text-gray-900 dark:text-gray-200 max-w-2xl mx-auto">
+              <p className="text-gray-900 dark:text-gray-200 max-w-2xl mx-auto mb-8">
                 Qeyd: Qiymətlər <b>1 ml</b> üzərindəndir!
               </p>
+              
+              <div className="flex flex-wrap justify-center gap-4 mb-8">
+                <button
+                  onClick={() => setSelectedCategory('all')}
+                  className={`px-6 py-2 rounded-full border transition-colors ${
+                    selectedCategory === 'all'
+                      ? 'bg-gold text-white border-gold'
+                      : 'border-gray-300 dark:border-gray-600 hover:border-gold'
+                  }`}
+                >
+                  Hamısı
+                </button>
+                <button
+                  onClick={() => setSelectedCategory('Kişi')}
+                  className={`px-6 py-2 rounded-full border transition-colors ${
+                    selectedCategory === 'Kişi'
+                      ? 'bg-gold text-white border-gold'
+                      : 'border-gray-300 dark:border-gray-600 hover:border-gold'
+                  }`}
+                >
+                  Kişi ətirləri
+                </button>
+                <button
+                  onClick={() => setSelectedCategory('Qadın')}
+                  className={`px-6 py-2 rounded-full border transition-colors ${
+                    selectedCategory === 'Qadın'
+                      ? 'bg-gold text-white border-gold'
+                      : 'border-gray-300 dark:border-gray-600 hover:border-gold'
+                  }`}
+                >
+                  Qadın ətirləri
+                </button>
+                <button
+                  onClick={() => setSelectedCategory('Unisex')}
+                  className={`px-6 py-2 rounded-full border transition-colors ${
+                    selectedCategory === 'Unisex'
+                      ? 'bg-gold text-white border-gold'
+                      : 'border-gray-300 dark:border-gray-600 hover:border-gold'
+                  }`}
+                >
+                  Unisex ətirlər
+                </button>
+              </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {products.map((product) => (
+              {filteredProducts.map((product) => (
                 <ProductCard key={product.id} {...product} />
               ))}
             </div>
