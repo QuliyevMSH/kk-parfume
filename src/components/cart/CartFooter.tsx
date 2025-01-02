@@ -16,7 +16,7 @@ const CartFooter = ({
   return (
     <div className="border-t p-4 space-y-4 dark:border-gray-700 dark:bg-gray-800">
       <div className="text-sm text-center p-2 bg-gold/10 rounded-md text-gold">
-        20 AZN üzəri alışda Bakı və Sumqayıta çatdırılma pulsuzdur !
+        20 AZN üzəri alışda Bakı <b>(metro)</b> və Sumqayıta <b>(SDU)</b> çatdırılma pulsuzdur !
       </div>
       <div className="flex justify-between items-center">
         <span className="font-medium dark:text-white">Cəmi:</span>
@@ -33,7 +33,7 @@ const CartFooter = ({
           value={deliveryAddress}
           onChange={(e) => setDeliveryAddress(e.target.value)}
           className="w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-          placeholder="Məs: Bakı şəhəri, Nizami küçəsi 5"
+          placeholder="Məsələn: Bakı şəhəri, Nizami metrosu"
         />
       </div>
       <button

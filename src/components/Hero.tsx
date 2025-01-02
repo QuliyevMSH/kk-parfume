@@ -20,7 +20,7 @@ const Hero = () => {
           KK Parfüm
         </h1>
         <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8">
-          Özünüzü xüsusi hiss etmək üçün premium ətirlər
+        💎 Özünə dəyər verənlər üçün premium ətirlər 💎
         </p>
         <a href="#products" onClick={scrollToProducts} className="btn-primary">
           Məhsullarımız

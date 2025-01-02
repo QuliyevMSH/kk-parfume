@@ -19,12 +19,12 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
     const message = cart
       .map(
         (item) =>
-          `*${item.name}* - ${item.quantity} ml (${
+          `*${item.name}* - ${item.quantity} ml (*${
             item.price * item.quantity
-          } AZN)`
+          } AZN)*`
       )
       .join("\n");
-    const totalMessage = `\nCəmi: *${totalAmount}* AZN`;
+    const totalMessage = `\nCəmi: *${totalAmount} AZN*`;
     const addressMessage = deliveryAddress
       ? `\nÇatdırılma ünvanı: *${deliveryAddress}*`
       : "";

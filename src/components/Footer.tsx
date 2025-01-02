@@ -11,13 +11,13 @@ const Footer = () => {
               <span className="text-gold ml-1">Parfüm</span>
             </h3>
             <p className="text-gray-400">
-              Premium ətirlər və xüsusi təkliflər üçün bizi seçin
+            ✨ Sizin qoxunuz, sizin tərziniz 💫
             </p>
           </div>
-          <div>
-            <h3 className="text-xl font-playfair font-semibold mb-4">Əlaqə</h3>
-            <p className="text-gray-400">Telefon: +994 50 684 78 34</p>
-            <p className="text-gray-400">Email: info@kkparfum.az</p>
+          <div style={{display:"flex", flexDirection:"column", gap:"5px"}}>
+            <h3 className=" text-xl font-playfair font-semibold mb-4">Əlaqə</h3>
+            <a className="text-gray-400" href="https://wa.me/994506847834?text=Salam,%2C%20KK%20Parfüm." target="_blank" rel="noopener noreferrer">Telefon: +994 50 684 78 34</a>
+            <a className="text-gray-400" href="mailto:masallahquliyev78@gmail.com?subject=Subject&body=Message" target="_blank" rel="noopener noreferrer">Email: info@kkparfum.az</a>
           </div>
           <div>
             <h3 className="text-xl font-playfair font-semibold mb-4">Ünvan</h3>
