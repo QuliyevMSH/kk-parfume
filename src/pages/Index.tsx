@@ -117,7 +117,7 @@ const Index = () => {
                   className={`px-6 py-2 rounded-full border transition-colors ${
                     selectedCategory === 'all'
                       ? 'bg-gold text-white border-gold'
-                      : 'border-gray-300 dark:border-gray-600 hover:border-gold'
+                      : 'border-gray-300 dark:border-gray-600 dark:text-gray-200 hover:border-gold dark:hover:border-gold'
                   }`}
                 >
                   Hamısı
@@ -127,7 +127,7 @@ const Index = () => {
                   className={`px-6 py-2 rounded-full border transition-colors ${
                     selectedCategory === 'Kişi'
                       ? 'bg-gold text-white border-gold'
-                      : 'border-gray-300 dark:border-gray-600 hover:border-gold'
+                      : 'border-gray-300 dark:border-gray-600 dark:text-gray-200 hover:border-gold dark:hover:border-gold'
                   }`}
                 >
                   Kişi ətirləri
@@ -137,7 +137,7 @@ const Index = () => {
                   className={`px-6 py-2 rounded-full border transition-colors ${
                     selectedCategory === 'Qadın'
                       ? 'bg-gold text-white border-gold'
-                      : 'border-gray-300 dark:border-gray-600 hover:border-gold'
+                      : 'border-gray-300 dark:border-gray-600 dark:text-gray-200 hover:border-gold dark:hover:border-gold'
                   }`}
                 >
                   Qadın ətirləri
@@ -147,7 +147,7 @@ const Index = () => {
                   className={`px-6 py-2 rounded-full border transition-colors ${
                     selectedCategory === 'Unisex'
                       ? 'bg-gold text-white border-gold'
-                      : 'border-gray-300 dark:border-gray-600 hover:border-gold'
+                      : 'border-gray-300 dark:border-gray-600 dark:text-gray-200 hover:border-gold dark:hover:border-gold'
                   }`}
                 >
                   Unisex ətirlər

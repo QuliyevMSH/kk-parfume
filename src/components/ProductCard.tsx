@@ -12,6 +12,11 @@ interface ProductCardProps {
 const ProductCard = ({ id, name, description, price, image, gender }: ProductCardProps) => {
   const navigate = useNavigate();
 
+  const handleProductClick = () => {
+    window.scrollTo(0, 0);
+    navigate(`/product/${id}`);
+  };
+
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl">
       <div className="relative overflow-hidden">
@@ -26,7 +31,7 @@ const ProductCard = ({ id, name, description, price, image, gender }: ProductCar
         <div className="flex justify-between items-center mt-4">
           <span className="text-lg font-semibold dark:text-white">{price} AZN</span>
           <button 
-            onClick={() => navigate(`/product/${id}`)} 
+            onClick={handleProductClick} 
             className="bg-transparent border border-black dark:border-white text-black dark:text-white px-6 py-3 rounded-md 
                      transition-all duration-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black 
                      font-medium"
