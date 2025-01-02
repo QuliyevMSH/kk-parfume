@@ -17,11 +17,11 @@ const ProductDetail = () => {
 
   if (!product) {
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 dark:bg-gray-900 dark:text-white">
         <p>Məhsul tapılmadı</p>
         <button 
           onClick={() => navigate('/')}
-          className="mt-4 bg-gold text-white px-6 py-3 rounded-md"
+          className="mt-4 bg-gold text-white px-6 py-3 rounded-md dark:bg-gold dark:text-black"
         >
           Geri qayıt
         </button>
@@ -39,7 +39,7 @@ const ProductDetail = () => {
     if (quantity > 0) {
       addToCart({
         ...product,
-        quantity,
+        quantity: quantity,
       });
       setIsCartOpen(true);
     }
@@ -48,14 +48,14 @@ const ProductDetail = () => {
   const otherProducts = products.filter(p => p.id !== Number(id));
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col dark:bg-gray-900">
       <Header onCartClick={() => setIsCartOpen(true)} />
       <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       
       <main className="flex-1 container mx-auto px-4 py-8">
         <button 
           onClick={() => navigate('/')}
-          className="mb-8 text-gold hover:text-gold/80 transition-colors"
+          className="mb-8 text-gold hover:text-gold/80 transition-colors dark:text-gold dark:hover:text-gold/60"
         >
           ← Geri qayıt
         </button>
@@ -65,7 +65,7 @@ const ProductDetail = () => {
             <img 
               src={product.image} 
               alt={product.name} 
-              className="w-full h-[400px] object-cover rounded-lg shadow-lg"
+              className="w-full h-[400px] object-cover rounded-lg shadow-lg dark:shadow-gray-800"
             />
             <span className="absolute top-4 right-4 bg-gold px-4 py-2 rounded-full text-white">
               {product.gender}
@@ -92,7 +92,7 @@ const ProductDetail = () => {
               <div className="flex items-center space-x-4">
                 <button
                   onClick={() => setQuantity(Math.max(0, quantity - 1))}
-                  className="p-2 bg-gold text-white rounded-md hover:bg-gold/80"
+                  className="p-2 bg-gold text-white rounded-md hover:bg-gold/80 dark:bg-gold dark:text-black dark:hover:bg-gold/90"
                 >
                   -
                 </button>
@@ -100,11 +100,11 @@ const ProductDetail = () => {
                   type="text"
                   value={quantity}
                   onChange={(e) => handleQuantityChange(e.target.value)}
-                  className="w-20 text-center border rounded-md dark:bg-gray-700 dark:text-white"
+                  className="w-20 text-center border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
                 />
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className="p-2 bg-gold text-white rounded-md hover:bg-gold/80"
+                  className="p-2 bg-gold text-white rounded-md hover:bg-gold/80 dark:bg-gold dark:text-black dark:hover:bg-gold/90"
                 >
                   +
                 </button>
@@ -115,7 +115,7 @@ const ProductDetail = () => {
               onClick={handleAddToCart}
               disabled={quantity === 0}
               className="w-full bg-gold text-white py-3 rounded-md hover:bg-gold/80 transition-colors
-                       disabled:opacity-50 disabled:cursor-not-allowed"
+                       disabled:opacity-50 disabled:cursor-not-allowed dark:bg-gold dark:text-black dark:hover:bg-gold/90"
             >
               Səbətə əlavə et
             </button>
