@@ -10,7 +10,6 @@ const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
-  const [quantity, setQuantity] = useState(1);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const product = products.find(p => p.id === Number(id));
@@ -29,20 +28,12 @@ const ProductDetail = () => {
     );
   }
 
-  const handleQuantityChange = (value: string) => {
-    if (!/^\d*$/.test(value)) return;
-    const newQuantity = parseInt(value) || 0;
-    setQuantity(newQuantity);
-  };
-
   const handleAddToCart = () => {
-    if (quantity > 0) {
-      addToCart({
-        ...product,
-        quantity: quantity,
-      });
-      setIsCartOpen(true);
-    }
+    addToCart({
+      ...product,
+      quantity: 1,
+    });
+    setIsCartOpen(true);
   };
 
   const otherProducts = products.filter(p => p.id !== Number(id));
@@ -52,7 +43,7 @@ const ProductDetail = () => {
       <Header onCartClick={() => setIsCartOpen(true)} />
       <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       
-      <main className="flex-1 container mx-auto px-4 py-8">
+      <main className="flex-1 container mx-auto px-4 py-8 mt-8">
         <button 
           onClick={() => navigate('/')}
           className="mb-8 text-gold hover:text-gold/80 transition-colors dark:text-gold dark:hover:text-gold/60"
@@ -78,44 +69,17 @@ const ProductDetail = () => {
             </h1>
             
             <p className="text-xl font-semibold dark:text-white">
-              {product.price * quantity} AZN ({product.price} AZN/ml)
+              {product.price} AZN
             </p>
             
             <p className="text-gray-600 dark:text-gray-300">
               {product.details}
             </p>
             
-            <div className="space-y-4">
-              <label className="block text-sm font-medium dark:text-white">
-                Neçə ml?
-              </label>
-              <div className="flex items-center space-x-4">
-                <button
-                  onClick={() => setQuantity(Math.max(0, quantity - 1))}
-                  className="p-2 bg-gold text-white rounded-md hover:bg-gold/80 dark:bg-gold dark:text-black dark:hover:bg-gold/90"
-                >
-                  -
-                </button>
-                <input
-                  type="text"
-                  value={quantity}
-                  onChange={(e) => handleQuantityChange(e.target.value)}
-                  className="w-20 text-center border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
-                />
-                <button
-                  onClick={() => setQuantity(quantity + 1)}
-                  className="p-2 bg-gold text-white rounded-md hover:bg-gold/80 dark:bg-gold dark:text-black dark:hover:bg-gold/90"
-                >
-                  +
-                </button>
-              </div>
-            </div>
-            
             <button
               onClick={handleAddToCart}
-              disabled={quantity === 0}
               className="w-full bg-gold text-white py-3 rounded-md hover:bg-gold/80 transition-colors
-                       disabled:opacity-50 disabled:cursor-not-allowed dark:bg-gold dark:text-black dark:hover:bg-gold/90"
+                       dark:bg-gold dark:text-black dark:hover:bg-gold/90"
             >
               Səbətə əlavə et
             </button>
@@ -145,7 +109,7 @@ const ProductDetail = () => {
                 </div>
                 <div className="p-4">
                   <h3 className="font-playfair font-semibold dark:text-white">{product.name}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{product.price} AZN/ml</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">{product.price} AZN</p>
                 </div>
               </div>
             ))}
