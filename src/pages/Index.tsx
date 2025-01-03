@@ -93,6 +93,17 @@ export const products = [
     gender: "Unisex",
     details:
       "Paco Rabanne 1 Million, lüks və cəlbedici bir ətirdir. Qızıl notalarla zənginləşdirilmişdir.",
+  },,
+  {
+    id: 9,
+    name: "Yeniii",
+    description: "Zərif çiçək notaları",
+    price: 280,
+    image:
+      "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=2004&auto=format&fit=crop",
+    gender: "Qadın",
+    details:
+      "Gucci Bloom, çiçək notaları ilə dolu bir ətirdir. Təzə çiçəklərin qoxusu ilə doludur.",
   },
 ];
 
