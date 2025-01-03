@@ -1,69 +1,51 @@
-# Welcome to your Lovable project
+# 🌟 KK Parfüm – Hər Günü Xoş Ətirli Edin
 
-## Project info
+**KK Parfüm** – Ətir sevənlər üçün unikal və orijinal **decant (kiçik ölçülü)** parfüm xidmətidir. Artıq hər gün fərqli bir ətri sınamaq üçün böyük şüşələrə ehtiyac yoxdur!
 
-**URL**: https://lovable.dev/projects/49a81662-8619-4533-8533-dd8d1d997c4c
+---
 
-## How can I edit this code?
+## 📋 **Layihə Haqqında Məlumat**
 
-There are several ways of editing your application.
+**KK Parfüm** platforması vasitəsilə istifadəçilər **istənilən** ölçülərdə orijinal ətirləri əldə edə bilərlər. 
 
-**Use Lovable**
+Bu xidmət:
+- **Orijinal brendlərdən** decant məhsulları təqdim edir.
+- Hər gün üçün **fərqli ətrə sahib olmaq** imkanı yaradır.
+- Aylıq xüsusi kampaniyalar təklif edir.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/49a81662-8619-4533-8533-dd8d1d997c4c) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛍 **Xüsusi Kampaniya**
 
-**Use your preferred IDE**
+🎁 **20 AZN və üzəralışverişdə** – Pulsuz çatdırılma **(Metro və Universitetlərə)**  
+✨ **İstənilən ölçülərdə** – Qablaşdırma **(Xüsusi günlərə özəl)**.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 📞 **Əlaqə**
 
-Follow these steps:
+Layihə və məhsullarımızla bağlı hər hansı bir sualınız və ya təklifiniz varsa, bizimlə əlaqə saxlayın:
+Layihə rəhbəri:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Email:** quliyemasallah96@gmail.com
+- **Website:** [https://my-portfolio-msh.vercel.app](https://my-portfolio-msh.vercel.app)
+- **Instagram:** [@quliyevmsh](https://instagram.com/quliyevmsh)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 🎨 **Niyə KK Parfüm?**
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+- **Original brendlər** – Gucci, Versace, Dior və digər premium ətir markaları.
+- **Hər gün fərqli ətrə sahib olun** – 7 günlük setlə hər gün fərqli bir ətri sınayın.
+- **Əlverişli qiymətlər** – Kiçik ölçülü decant ətirlər, hamı üçün əlçatan.
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🔐 **Hüquqi Qeyd**
 
-**Use GitHub Codespaces**
+📄 **Bütün hüquqlar qorunur.**  
+Bu platformada təqdim olunan bütün məzmun və xidmətlər **KK Parfüm** brendinə həmçinin **QuliyevMSH** layihə başçısına məxsusdur və müəllif hüquqları ilə qorunur.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/49a81662-8619-4533-8533-dd8d1d997c4c) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+**KK Parfüm** – Hər gün yeni bir ətrə sahib olun! ✨
